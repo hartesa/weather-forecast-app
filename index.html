@@ -1,177 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./styles.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <style>
-        body {
-  text-align: center;
-  font-family: "amatic sc";
-}
-.weather-app {
-  border-style: double;
-  border-radius: 30px 0px;
-  margin: 20px 10px;
-  padding-bottom: 40px;
-  max-width: 75%;
-  display: block;
-  margin: 20px auto;
-  border-color: crimson;
-}
-h1 {
-  color: burlywood;
-  margin: 20px;
-  font-size: 60px;
-  font-weight: 500;
-}
-p {
-  text-align: left;
-}
-.form {
-  font-size: 20px;
-  margin: 20px auto;
-  border-right: -60px;
-}
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="src/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="src/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="src/favicon_io/site.webmanifest" />
+    <link rel="stylesheet" href="src/styles.css" />
 
-.border {
-  padding: 10px 20px;
-}
-.btn-primary {
-  background: lemonchiffon;
-  border: none;
-  color: gray;
-  display: inline;
-  position: relative;
-  top: 5px;
-}
-.btn-secondary {
-  background-color: burlywood;
-  border: none;
-}
-.btn-primary:hover {
-  background: salmon;
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-gap: 20px;
-  max-width: 80%;
-  margin: 0 auto;
-}
-.current {
-  border-style: ridge;
-  border-color: burlywood;
-  border-radius: 20px 0px;
-  padding-top: 10px;
-  text-align: center;
-}
-.currentWeatherEmoji {
-  position: relative;
-  top: -10px;
-  font-size: 60px;
-}
-.add {
-  position: relative;
-  top: -20px;
-}
-#current-temp {
-  font-size: 40px;
-  font-weight: 900;
-}
-#tempc {
-  color: salmon;
-}
-#tempc:hover {
-  color: burlywood;
-  cursor: pointer;
-}
-#tempf {
-  color: salmon;
-}
-#tempf:hover {
-  color: burlywood;
-  cursor: pointer;
-}
-.fivedays {
-  text-align: center;
-  font-size: 22px;
-  padding-top: 12px;
-  padding-bottom: 10px;
-  border-style: ridge;
-  border-color: burlywood;
-}
-.next-weather-emoji {
-  font-size: 32px;
-}
-
-.city {
-  font-size: 28px;
-}
-.enter-city {
-  margin: 20px 0;
-  width: 50%;
-  padding: 5px;
-  border-radius: 5px;
-  border-style: dashed;
-  border-color: burlywood;
-}
-
-    </style>
+    <title>Weather Forecast App</title>
   </head>
-
   <body>
     <div class="container">
-      <div class="weather-app">
-      <h1>
-        Weather Forecast
-      </h1>
-
-      <div>
-          <form id="input-form"><input class="enter-city"
-          type="text"
-          id="inputCity"
-          placeholder="Enter a city"
-        />   
-
-        <button type="submit" class="btn btn-primary mb-2">
-          Submit
-        </button>
-        <button type="submit" class="btn btn-secondary">
-          Current
-        </button></form>
-        
-      </div>
-      
-      <div class="grid-container">
-        <div class="current">
-          <span class="city"> City </span> <br />
-          <span id="current-day"> Day </span><span id="current-time"> time </span><br />
-          <span id="current-weather">Partly Cloudy </span><br />
-          <span class="currentWeatherEmoji"><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon" ></span><br>
-          <span class="add"><span id="current-temp">12</span><span id="tempc"> °C </span>|<span id="tempf"> °F</span><br>
-          Clouds: <span id="precipitation">15</span>%<br>
-          humidity: <span id="humidity">50</span>%<br>
-          Wind: <span id ="wind">10</span> km/h</span>
-        </div>
-      <div class="fivedays">
-        next five days 🔮 <br>
-        SUN <span class="next-weather-emoji">🌤</span> 20°C - 32°C <br>
-        SUN <span class="next-weather-emoji">🌤</span> 20°C - 32°C <br>
-        SUN <span class="next-weather-emoji">🌤</span> 20°C - 32°C <br>
-        SUN <span class="next-weather-emoji">🌤</span> 20°C - 32°C <br>
-        SUN <span class="next-weather-emoji">🌤</span> 20°C - 32°C <br>
-      </div>
+      <!-- Content here -->
     </div>
-</div>
-<a href="https://github.com/hartesa/weather-forecast-app" target="_blank">Open-source code</a> by Hartesa
-    <script src="./index.js"></script>
+
+    test
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/myscripts.js"></script>
   </body>
 </html>
