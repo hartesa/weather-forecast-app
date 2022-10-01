@@ -1,3 +1,5 @@
+showCurrent();
+
 let now = new Date();
 let currentDay = document.querySelector("#current-day");
 let currentTime = document.querySelector("#current-time");
@@ -272,53 +274,35 @@ function showCurrent() {
   }
 }
 
-showCurrent();
+let tempCButton = document.querySelector("button.tempC");
+let tempFButton = document.querySelector("button.tempF");
 
-// function showCurrentWeatherEmoji(weather, weatherEmoji) {
-//   if (weather === "clear sky") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/sunny.png"
-//     );
-//   } else if (weather === "few clouds") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/sunny_s_cloudy.png"
-//     );
-//   } else if (weather === "scattered clouds") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/partly_cloudy.png"
-//     );
-//   } else if (weather === "broken clouds") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/cloudy.png"
-//     );
-//   } else if (weather === "shower rain") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/rain_light.png"
-//     );
-//   } else if (weather === "rain") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/rain.png"
-//     );
-//   } else if (weather === "thunderstorm") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/thunderstorms.png"
-//     );
-//   } else if (weather === "snow") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/snow.png"
-//     );
-//   } else if (weather === "mist") {
-//     weatherEmoji.setAttribute(
-//       "src",
-//       "https://ssl.gstatic.com/onebox/weather/256/mist.png"
-//     );
-//   }
-// }
+tempFButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  let inputCity = document.querySelector("#inputCity");
+  let apiKey = "3bb0c822ffbf8d7d00af7f1e1a4032dc";
+  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
+  axios.get(apiCityUrl).then(showInput);
+  function showInput(response) {
+    let currentTemp = document.querySelector("#current-temp");
+    let temp = Math.round(response.data.main.temp);
+    let tempF = Math.round(temp * (9 / 5) + 32);
+    currentTemp.innerHTML = tempF;
+    let tempType = document.querySelector(".temp-type");
+    tempType.innerHTML = "°F";
+  }
+});
+tempCButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  let inputCity = document.querySelector("#inputCity");
+  let apiKey = "3bb0c822ffbf8d7d00af7f1e1a4032dc";
+  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
+  axios.get(apiCityUrl).then(showInput);
+  function showInput(response) {
+    let currentTemp = document.querySelector("#current-temp");
+    let temp = Math.round(response.data.main.temp);
+    currentTemp.innerHTML = temp;
+    let tempType = document.querySelector(".temp-type");
+    tempType.innerHTML = "°C";
+  }
+});
