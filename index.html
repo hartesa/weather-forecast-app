@@ -42,16 +42,43 @@
   </head>
   <body>
     <div class="container">
-      <!-- Content here -->
+<div class="weather-app">
+  <br>
+      <div id="inputForm">
+          <form id="input-form"><input class="enter-city"
+          type="text"
+          id="inputCity"
+          placeholder="Enter a city"
+        />   
+        <button type="submit" class="btn btn-primary mb-2">
+          Submit
+        </button>
+        <button type="submit" class="btn btn-secondary">
+          Current
+        </button></form>
+        
+        <hr>
+      </div>
+      
+      <div class="grid-container">
+        <div class="current">
+          <span class="city"> City </span> <br />
+          <span id="current-day"> Day </span><span id="current-time"> time </span><br />
+          <span id="current-weather">Partly Cloudy </span><br />
+          <span class="currentWeatherEmoji"><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon" ></span><br>
+          <span class="add"><span id="current-temp">12</span><span id="tempc"> °C </span>|<span id="tempf"> °F</span><br>
+          Clouds: <span id="precipitation">15</span>%<br>
+          humidity: <span id="humidity">50</span>%<br>
+          Wind: <span id ="wind">10</span> km/h</span>
+        </div>
+      
     </div>
-
-    test
-
+   </div>
+    <script src="src/myscripts.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
-    <script src="src/myscripts.js"></script>
   </body>
 </html>

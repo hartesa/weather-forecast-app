@@ -1,4 +1,114 @@
 body {
   text-align: center;
   font-family: "amatic sc", cursive;
+  background-color: bisque;
+  height: 100%;
+  color: lightslategray;
+}
+hr {
+  margin: auto;
+  width: 85%;
+  color: burlywood;
+}
+.container {
+  margin-top: 120px;
+}
+.weather-app {
+  border-style: none;
+  border-radius: 30px 0px;
+  margin: auto;
+  padding-bottom: 40px;
+  max-width: 75%;
+  max-height: 95%;
+  background-color: white;
+  box-shadow: 0px 0px 50px burlywood;
+}
+.temp-button {
+  border-radius: 100%;
+  border-style: none;
+}
+
+h1,
+.city {
+  color: burlywood;
+  margin: 20px;
+  font-size: 60px;
+  font-weight: 500;
+}
+p {
+  text-align: left;
+}
+.form {
+  font-size: 20px;
+  margin: auto;
+  border-right: -60px;
+}
+
+.btn-primary {
+  background: lemonchiffon;
+  border: none;
+  color: gray;
+  display: inline;
+  position: relative;
+  top: 5px;
+}
+.btn-secondary {
+  background-color: burlywood;
+  border: none;
+}
+.btn-primary:hover {
+  background: salmon;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 20px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.current {
+  border-style: none;
+  border-color: burlywood;
+  border-radius: 20px 0px;
+  padding-top: 10px;
+  text-align: center;
+}
+.currentWeatherEmoji {
+  position: relative;
+  top: -10px;
+  font-size: 60px;
+}
+.add {
+  position: relative;
+  top: -20px;
+}
+#current-temp {
+  font-size: 40px;
+  font-weight: 900;
+}
+#tempc {
+  color: salmon;
+}
+#tempc:hover {
+  color: burlywood;
+  cursor: pointer;
+}
+#tempf {
+  color: salmon;
+}
+#tempf:hover {
+  color: burlywood;
+  cursor: pointer;
+}
+.next-weather-emoji {
+  font-size: 32px;
+}
+
+.enter-city {
+  margin: 20px 0;
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+  border-style: dashed;
+  border-color: burlywood;
 }
