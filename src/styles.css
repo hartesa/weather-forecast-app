@@ -5,17 +5,16 @@ body {
   height: 100%;
   color: lightslategray;
 }
-.current {
+.left,
+.right {
   display: block;
   text-align: left;
 }
 #current-day-time {
-  display: block;
-  text-align: left;
-  font-size: 18px;
+  font-size: 16px;
 }
 #current-day {
-  font-size: 20px;
+  font-size: 18px;
 }
 hr {
   margin: auto;
@@ -36,20 +35,40 @@ hr {
   background-color: white;
   box-shadow: 0px 0px 50px burlywood;
 }
+.today,
+.week {
+  background-color: transparent;
+  border-style: none;
+  font-size: 18px;
+}
+.today {
+  color: burlywood;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-position: under;
+}
+.week {
+  color: lightslategray;
+}
 .temp-button {
   border-radius: 100%;
   border-style: none;
+  float: right;
+  margin: 0px 3px;
+  background-color: burlywood;
+  color: beige;
 }
-
+.tempC {
+  color: lightslategray;
+  background-color: lemonchiffon;
+}
 h1,
 .city {
   color: burlywood;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 500;
 }
-p {
-  text-align: left;
-}
+
 .form {
   font-size: 20px;
   margin: auto;
@@ -82,11 +101,14 @@ p {
 .currentWeatherEmoji {
   position: relative;
   top: -13px;
+  max-width: 100px;
 }
-
+.current-temp {
+  font-size: 40px;
+}
 #current-temp {
   right: 10px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 900;
 }
 #tempc {
@@ -117,4 +139,11 @@ p {
 }
 .github-icon {
   width: 13px;
+}
+.afternote {
+  position: relative;
+  bottom: -80px;
+}
+a {
+  color: brown;
 }

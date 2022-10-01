@@ -11,6 +11,7 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,7 +45,7 @@
     <div class="container">
 <div class="weather-app">
   <br>
-  <h1><span class="city">Country, City</span>'s Weather</h1>
+  <h1><span class="city">country, city</span>'s Weather</h1>
 
       <div id="inputForm">
           <form id="input-form"><input class="enter-city"
@@ -60,34 +61,35 @@
         </button></form>
       </div>  
         <hr>
-     <div class="container">
-  <div class="row current">
-    <div class="col">
+
+  <div class="container">
+  <div class="row">
+    <div class="col-4 left">
       <span id="current-day-time"><span id="current-day"> Day </span><span id="current-time"> time </span></span>
-      <span><span id="current-temp">12°C</span></span>
-      <img class="currentWeatherEmoji" src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon" >
+      <br><span class="current-temp"><span id="current-temp">12</span>°C</span>
+      <img class="currentWeatherEmoji" src="https://ssl.gstatic.com/onebox/weather/256/partly_cloudy.png" alt="Weather icon" >
       <br><span id="current-weather">Partly Cloudy </span>
       <br> clouds: <span id="precipitation">15</span>%<br>
       humidity: <span id="humidity">50</span>%<br>
       wind: <span id ="wind">10</span> km/h</span>
     </div>
-    <div class="col">
+    <div class="col-8 right">
+      <button type="button" class="today">Today</button>    
+      <button type="button" class="week">Week</button>    
+      <button type="button" class="temp-button tempF">°F</button>    
+      <button type="button" class="temp-button tempC">°C</button> 
       
-    
-    </div>
+      <hr>
 
-  </div>
-  <div class="row">
-    <div class="col">
-    
     </div>
-</div>
-      
+  </div>
          
-         
-   <img src="src/github.svg" alt="github" class="github-icon">
-   <a href="https://github.com/freshgoldroses/weather-app" target="_blank" class="github-link">Open-source code </a>
-    by Hartesa ©2022
+    <div class="afternote">
+       <img  src="src/github.svg" alt="github" class="github-icon">
+      <a href="https://github.com/freshgoldroses/weather-app" target="_blank" class="github-link">Open-source code</a>
+       by Hartesa ©2022
+    </div>     
+  
              
    
    <script src="src/myscripts.js"></script>
