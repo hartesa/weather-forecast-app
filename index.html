@@ -44,6 +44,8 @@
     <div class="container">
 <div class="weather-app">
   <br>
+  <h1><span class="city">Country, City</span>'s Weather</h1>
+
       <div id="inputForm">
           <form id="input-form"><input class="enter-city"
           type="text"
@@ -56,25 +58,39 @@
         <button type="submit" class="btn btn-secondary">
           Current
         </button></form>
-        
+      </div>  
         <hr>
-      </div>
-      
-      <div class="grid-container">
-        <div class="current">
-          <span class="city"> City </span> <br />
-          <span id="current-day"> Day </span><span id="current-time"> time </span><br />
-          <span id="current-weather">Partly Cloudy </span><br />
-          <span class="currentWeatherEmoji"><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon" ></span><br>
-          <span class="add"><span id="current-temp">12</span><span id="tempc"> °C </span>|<span id="tempf"> °F</span><br>
-          Clouds: <span id="precipitation">15</span>%<br>
-          humidity: <span id="humidity">50</span>%<br>
-          Wind: <span id ="wind">10</span> km/h</span>
-        </div>
-      
+     <div class="container">
+  <div class="row current">
+    <div class="col">
+      <span id="current-day-time"><span id="current-day"> Day </span><span id="current-time"> time </span></span>
+      <span><span id="current-temp">12°C</span></span>
+      <img class="currentWeatherEmoji" src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon" >
+      <br><span id="current-weather">Partly Cloudy </span>
+      <br> clouds: <span id="precipitation">15</span>%<br>
+      humidity: <span id="humidity">50</span>%<br>
+      wind: <span id ="wind">10</span> km/h</span>
     </div>
-   </div>
-    <script src="src/myscripts.js"></script>
+    <div class="col">
+      
+    
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col">
+    
+    </div>
+</div>
+      
+         
+         
+   <img src="src/github.svg" alt="github" class="github-icon">
+   <a href="https://github.com/freshgoldroses/weather-app" target="_blank" class="github-link">Open-source code </a>
+    by Hartesa ©2022
+             
+   
+   <script src="src/myscripts.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
