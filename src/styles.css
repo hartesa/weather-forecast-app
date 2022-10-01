@@ -16,7 +16,7 @@ body {
 #current-day {
   font-size: 18px;
 }
-hr {
+#hr1 {
   margin: auto;
   width: 85%;
   color: burlywood;
@@ -146,4 +146,22 @@ h1,
 }
 a {
   color: brown;
+}
+button.today {
+  padding: 0px;
+}
+.weather-forecast {
+  position: relative;
+  top: 10px;
+}
+.forecastWeatherEmoji {
+  max-width: 40px;
+}
+.weather-forecast-temp {
+  font-size: 15px;
+}
+#hr2 {
+  margin: auto;
+  width: 100%;
+  color: burlywood;
 }

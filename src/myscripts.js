@@ -290,6 +290,12 @@ tempFButton.addEventListener("click", function (event) {
     currentTemp.innerHTML = tempF;
     let tempType = document.querySelector(".temp-type");
     tempType.innerHTML = "°F";
+    document.getElementsByClassName("tempF").style.backgroundColor =
+      "lemonchiffon";
+    document.getElementsByClassName("tempF").style.color = "burlywood";
+    document.getElementsByClassName("tempC").style.backgroundColor =
+      "burlywood";
+    document.getElementsByClassName("tempC").style.color = "lemonchiffon";
   }
 });
 tempCButton.addEventListener("click", function (event) {
@@ -304,5 +310,11 @@ tempCButton.addEventListener("click", function (event) {
     currentTemp.innerHTML = temp;
     let tempType = document.querySelector(".temp-type");
     tempType.innerHTML = "°C";
+    document.getElementsByClassName("tempC").style.backgroundColor =
+      "lemonchiffon";
+    document.getElementsByClassName("tempC").style.color = "burlywood";
+    document.getElementsByClassName("tempF").style.backgroundColor =
+      "burlywood";
+    document.getElementsByClassName("tempF").style.color = "lemonchiffon";
   }
 });
