@@ -101,6 +101,7 @@ h1,
 .currentWeatherEmoji {
   position: relative;
   top: -13px;
+  left: -5px;
   max-width: 100px;
 }
 .current-temp {
@@ -164,4 +165,16 @@ button.today {
   margin: auto;
   width: 100%;
   color: burlywood;
+}
+div.col-8.right {
+  padding: 0px;
+}
+div.col-2 {
+  padding: 0px;
+}
+div.row {
+  margin: 0px;
+}
+div.weather-forecast {
+  text-align: center;
 }

@@ -1,5 +1,3 @@
-showCurrent();
-
 let now = new Date();
 let currentDay = document.querySelector("#current-day");
 let currentTime = document.querySelector("#current-time");
@@ -98,6 +96,8 @@ inputForm.addEventListener("submit", function (event) {
         "https://ssl.gstatic.com/onebox/weather/256/mist.png"
       );
     }
+
+    getForecast(response.data.coord);
   }
 });
 
@@ -192,6 +192,8 @@ currentButton.addEventListener("click", function (event) {
           "https://ssl.gstatic.com/onebox/weather/256/mist.png"
         );
       }
+
+      getForecast(response.data.coord);
     }
   }
 });
@@ -270,9 +272,13 @@ function showCurrent() {
           "https://ssl.gstatic.com/onebox/weather/256/mist.png"
         );
       }
+
+      getForecast(response.data.coord);
     }
   }
 }
+
+showCurrent();
 
 let tempCButton = document.querySelector("button.tempC");
 let tempFButton = document.querySelector("button.tempF");
@@ -323,3 +329,51 @@ tempCButton.addEventListener("click", function (event) {
       "lemonchiffon";
   }
 });
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector(".weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    tempMin = Math.round(forecastDay.temp.min);
+    tempMax = Math.round(forecastDay.temp.max);
+
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+              <div class="col-2">
+                  <div class="weather-forecast-date">${formatDay(
+                    forecastDay.dt
+                  )}</div>
+                   <img class="forecastWeatherEmoji" src="http://openweathermap.org/img/wn/${
+                     forecastDay.weather[0].icon
+                   }@2x.png" alt="Weather icon" >
+                  <div class="weather-forecast-temp">
+                    <span class="weather-forecast-temp-min">${tempMin}°</span>-
+                    <span class="weather-forecast-temp-max">${tempMax}°</span>
+                  </div>
+              </div>
+            `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "caa883a4a60d93878755b08a933f74ea";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
