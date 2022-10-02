@@ -279,9 +279,9 @@ let tempFButton = document.querySelector("button.tempF");
 
 tempFButton.addEventListener("click", function (event) {
   event.preventDefault();
-  let inputCity = document.querySelector("#inputCity");
+  let city = document.querySelector("span.city").innerHTML;
   let apiKey = "3bb0c822ffbf8d7d00af7f1e1a4032dc";
-  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
+  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiCityUrl).then(showInput);
   function showInput(response) {
     let currentTemp = document.querySelector("#current-temp");
@@ -290,19 +290,22 @@ tempFButton.addEventListener("click", function (event) {
     currentTemp.innerHTML = tempF;
     let tempType = document.querySelector("#temp-type");
     tempType.innerHTML = "°F";
-    document.getElementsByClassName("tempF").style.backgroundColor =
+
+    document.querySelector("button.temp-button.tempF").style.backgroundColor =
       "lemonchiffon";
-    document.getElementsByClassName("tempF").style.color = "burlywood";
-    document.getElementsByClassName("tempC").style.backgroundColor =
+    document.querySelector("button.temp-button.tempF").style.color =
       "burlywood";
-    document.getElementsByClassName("tempC").style.color = "lemonchiffon";
+    document.querySelector("button.temp-button.tempC").style.backgroundColor =
+      "burlywood";
+    document.querySelector("button.temp-button.tempC").style.color =
+      "lemonchiffon";
   }
 });
 tempCButton.addEventListener("click", function (event) {
   event.preventDefault();
-  let inputCity = document.querySelector("#inputCity");
+  let city = document.querySelector("span.city").innerHTML;
   let apiKey = "3bb0c822ffbf8d7d00af7f1e1a4032dc";
-  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
+  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiCityUrl).then(showInput);
   function showInput(response) {
     let currentTemp = document.querySelector("#current-temp");
@@ -310,15 +313,13 @@ tempCButton.addEventListener("click", function (event) {
     currentTemp.innerHTML = temp;
     let tempType = document.querySelector("#temp-type");
     tempType.innerHTML = "°C";
-    document.getElementsByClassName("tempC").style.backgroundColor =
+    document.querySelector("button.temp-button.tempC").style.backgroundColor =
       "lemonchiffon";
-    document.getElementsByClassName("tempC").style.color = "burlywood";
-    document.getElementsByClassName("tempF").style.backgroundColor =
+    document.querySelector("button.temp-button.tempC").style.color =
       "burlywood";
-    document.getElementsByClassName("tempF").style.color = "lemonchiffon";
+    document.querySelector("button.temp-button.tempF").style.backgroundColor =
+      "burlywood";
+    document.querySelector("button.temp-button.tempF").style.color =
+      "lemonchiffon";
   }
 });
-
-function changeH1() {
-  tempCButton.getElementById("temp-type").innerHTML = "sss";
-}
