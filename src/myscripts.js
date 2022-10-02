@@ -98,6 +98,7 @@ inputForm.addEventListener("submit", function (event) {
     }
 
     getForecast(response.data.coord);
+    getCoord();
   }
 });
 
@@ -194,6 +195,7 @@ currentButton.addEventListener("click", function (event) {
       }
 
       getForecast(response.data.coord);
+      getCoord();
     }
   }
 });
@@ -274,6 +276,7 @@ function showCurrent() {
       }
 
       getForecast(response.data.coord);
+      getCoord();
     }
   }
 }
@@ -435,3 +438,41 @@ function getForecastF(coordinates) {
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecastF);
 }
+
+function getCoord() {
+  let city = document.querySelector("span.city").innerHTML;
+  let apiKey = "caa883a4a60d93878755b08a933f74ea";
+  let apiCityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiCityUrl).then(showCity);
+}
+function showCity(response) {
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let apiKey = "caa883a4a60d93878755b08a933f74ea";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showCountry);
+}
+function showCountry(response) {
+  let data = response.data.timezone;
+  let textElement = document.querySelector("#country-city");
+  textElement.innerHTML = data;
+}
+
+getCoord();
+
+// function showCity(coordinates) {
+//   let apiKey = "caa883a4a60d93878755b08a933f74ea";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+//   axios.get(apiUrl).then(displayCity);
+// }
+// function displayCity(response) {
+//   let textElement = document.querySelector("#country-city");
+//   let data = response.data.timezone;
+//   textElement.innerHTML = data;
+//   console.log(data);
+// }
+
+// showCity();
+
+// `https://serpapi.com/search.json?q=${city}&tbm=isch&ijn=0`
+// https://api.openweathermap.org/data/2.5/onecall?lat=39.099724&lon=-94.578331&appid=caa883a4a60d93878755b08a933f74ea&units=metric
