@@ -305,8 +305,25 @@ tempFButton.addEventListener("click", function (event) {
       "burlywood";
     document.querySelector("button.temp-button.tempC").style.color =
       "lemonchiffon";
+
+    // let tempMin0 = document.querySelectorAll(".weather-forecast-temp-min-num");
+    // let tempMax0 = document.querySelectorAll(".weather-forecast-temp-max-num");
+    // for (let tempElement of tempMin0) {
+    //   let tempMin = parseInt(tempElement.innerHTML);
+    //   let tempMinF = Math.round(tempMin * (9 / 5) + 32);
+    //   tempElement.innerHTML = tempMinF;
+    //   console.log(tempMinF);
+    // }
+    // for (let tempElement of tempMax0) {
+    //   let tempMax = parseInt(tempElement.innerHTML);
+    //   let tempMaxF = Math.round(tempMax * (9 / 5) + 32);
+    //   tempElement.innerHTML = tempMaxF;
+    // }
+
+    getForecastF(response.data.coord);
   }
 });
+
 tempCButton.addEventListener("click", function (event) {
   event.preventDefault();
   let city = document.querySelector("span.city").innerHTML;
@@ -327,6 +344,7 @@ tempCButton.addEventListener("click", function (event) {
       "burlywood";
     document.querySelector("button.temp-button.tempF").style.color =
       "lemonchiffon";
+    getForecast(response.data.coord);
   }
 });
 
@@ -350,8 +368,8 @@ function displayForecast(response) {
                      forecastDay.weather[0].icon
                    }@2x.png" alt="Weather icon" >
                   <div class="weather-forecast-temp">
-                    <span class="weather-forecast-temp-min">${tempMin}°</span>-
-                    <span class="weather-forecast-temp-max">${tempMax}°</span>
+                    <span class="weather-forecast-temp-min"><span class="weather-forecast-temp-min-num">${tempMin}</span>°</span>-
+                    <span class="weather-forecast-temp-max"><span class="weather-forecast-temp-min-num">${tempMax}</span>°</span>
                   </div>
               </div>
             `;
@@ -376,4 +394,44 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
+}
+
+function displayForecastF(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector(".weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    tempMin = Math.round(forecastDay.temp.min);
+    tempMax = Math.round(forecastDay.temp.max);
+
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+              <div class="col-2">
+                  <div class="weather-forecast-date">${formatDay(
+                    forecastDay.dt
+                  )}</div>
+                   <img class="forecastWeatherEmoji" src="http://openweathermap.org/img/wn/${
+                     forecastDay.weather[0].icon
+                   }@2x.png" alt="Weather icon" >
+                  <div class="weather-forecast-temp">
+                    <span class="weather-forecast-temp-min"><span class="weather-forecast-temp-min-num">${tempMin}</span>°</span>-
+                    <span class="weather-forecast-temp-max"><span class="weather-forecast-temp-min-num">${tempMax}</span>°</span>
+                  </div>
+              </div>
+            `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecastF(coordinates) {
+  console.log(coordinates);
+  let apiKey = "caa883a4a60d93878755b08a933f74ea";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecastF);
 }

@@ -33,7 +33,7 @@ body {
   max-width: 75%;
   max-height: 95%;
   background-color: white;
-  box-shadow: 0px 0px 50px burlywood;
+  box-shadow: 0px 0px 50px burlywood, inset 0 0 6px #f8a100;
 }
 .today,
 .week {
@@ -41,13 +41,13 @@ body {
   border-style: none;
   font-size: 18px;
 }
-.today {
+.week {
   color: burlywood;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-position: under;
 }
-.week {
+.today {
   color: lightslategray;
 }
 .temp-button {
@@ -87,7 +87,7 @@ h1,
   background-color: burlywood;
   border: none;
 }
-.btn-primary:hover {
+button.btn.btn-primary.mb-2:hover {
   background: salmon;
 }
 #current-weather {
