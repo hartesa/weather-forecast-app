@@ -288,7 +288,7 @@ tempFButton.addEventListener("click", function (event) {
     let temp = Math.round(response.data.main.temp);
     let tempF = Math.round(temp * (9 / 5) + 32);
     currentTemp.innerHTML = tempF;
-    let tempType = document.querySelector(".temp-type");
+    let tempType = document.querySelector("#temp-type");
     tempType.innerHTML = "°F";
     document.getElementsByClassName("tempF").style.backgroundColor =
       "lemonchiffon";
@@ -308,7 +308,7 @@ tempCButton.addEventListener("click", function (event) {
     let currentTemp = document.querySelector("#current-temp");
     let temp = Math.round(response.data.main.temp);
     currentTemp.innerHTML = temp;
-    let tempType = document.querySelector(".temp-type");
+    let tempType = document.querySelector("#temp-type");
     tempType.innerHTML = "°C";
     document.getElementsByClassName("tempC").style.backgroundColor =
       "lemonchiffon";
@@ -318,3 +318,7 @@ tempCButton.addEventListener("click", function (event) {
     document.getElementsByClassName("tempF").style.color = "lemonchiffon";
   }
 });
+
+function changeH1() {
+  tempCButton.getElementById("temp-type").innerHTML = "sss";
+}
