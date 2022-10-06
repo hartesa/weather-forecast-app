@@ -97,8 +97,20 @@ inputForm.addEventListener("submit", function (event) {
       );
     }
 
+    let tempType = document.querySelector("#temp-type");
+    tempType.innerHTML = "°C";
+    document.querySelector("button.temp-button.tempC").style.backgroundColor =
+      "lemonchiffon";
+    document.querySelector("button.temp-button.tempC").style.color =
+      "burlywood";
+    document.querySelector("button.temp-button.tempF").style.backgroundColor =
+      "burlywood";
+    document.querySelector("button.temp-button.tempF").style.color =
+      "lemonchiffon";
+
     getForecast(response.data.coord);
     getCoord();
+    changeContinentImage();
   }
 });
 
@@ -194,8 +206,20 @@ currentButton.addEventListener("click", function (event) {
         );
       }
 
+      let tempType = document.querySelector("#temp-type");
+      tempType.innerHTML = "°C";
+      document.querySelector("button.temp-button.tempC").style.backgroundColor =
+        "lemonchiffon";
+      document.querySelector("button.temp-button.tempC").style.color =
+        "burlywood";
+      document.querySelector("button.temp-button.tempF").style.backgroundColor =
+        "burlywood";
+      document.querySelector("button.temp-button.tempF").style.color =
+        "lemonchiffon";
+
       getForecast(response.data.coord);
       getCoord();
+      changeContinentImage();
     }
   }
 });
@@ -275,8 +299,20 @@ function showCurrent() {
         );
       }
 
+      let tempType = document.querySelector("#temp-type");
+      tempType.innerHTML = "°C";
+      document.querySelector("button.temp-button.tempC").style.backgroundColor =
+        "lemonchiffon";
+      document.querySelector("button.temp-button.tempC").style.color =
+        "burlywood";
+      document.querySelector("button.temp-button.tempF").style.backgroundColor =
+        "burlywood";
+      document.querySelector("button.temp-button.tempF").style.color =
+        "lemonchiffon";
+
       getForecast(response.data.coord);
       getCoord();
+      changeContinentImage();
     }
   }
 }
@@ -460,19 +496,28 @@ function showCountry(response) {
 
 getCoord();
 
-// function showCity(coordinates) {
-//   let apiKey = "caa883a4a60d93878755b08a933f74ea";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-//   axios.get(apiUrl).then(displayCity);
-// }
-// function displayCity(response) {
-//   let textElement = document.querySelector("#country-city");
-//   let data = response.data.timezone;
-//   textElement.innerHTML = data;
-//   console.log(data);
-// }
-
-// showCity();
-
-// `https://serpapi.com/search.json?q=${city}&tbm=isch&ijn=0`
-// https://api.openweathermap.org/data/2.5/onecall?lat=39.099724&lon=-94.578331&appid=caa883a4a60d93878755b08a933f74ea&units=metric
+function changeContinentImage() {
+  let continentImage = document.querySelector("#city-image");
+  let continentElement = document.querySelector("#country-city");
+  let continent = continentElement.innerHTML;
+  if (continent.includes("Africa")) {
+    continentImage.innerHTML =
+      '<img id="city-image" src="src/africa.jpeg" alt="City\'s Image">';
+  } else if (continent.includes("America")) {
+    continentImage.innerHTML =
+      '<img id="city-image" src="src/america.jpeg" alt="City\'s Image">';
+  } else if (continent.includes("Asia")) {
+    continentImage.innerHTML =
+      '<img id="city-image" src="src/asia.jpeg" alt="City\'s Image">';
+  } else if (continent.includes("Australia")) {
+    continentImage.innerHTML =
+      '<img id="city-image" src="src/australia.jpeg" alt="City\'s Image">';
+  } else {
+    continentImage.innerHTML =
+      '<img id="city-image" src="src/europe.jpeg" alt="City\'s Image">';
+  }
+  console.log(continentImage);
+  console.log(continentElement);
+  console.log(continent);
+}
+// string.includes("abcd");
