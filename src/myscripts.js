@@ -492,32 +492,53 @@ function showCountry(response) {
   let data = response.data.timezone;
   let textElement = document.querySelector("#country-city");
   textElement.innerHTML = data;
+
+  let continentImage = document.querySelector("#city-image");
+  let continent = textElement.innerText;
+
+  if (continent.includes("Africa")) {
+    continentImage.innerHTML = `<img id="city-image" src="src/africa.jpeg" alt="City's Image">`;
+  } else if (continent.includes("America")) {
+    continentImage.innerHTML = `<img id="city-image" src="src/america.jpeg" alt="City's Image">`;
+  } else if (continent.includes("Asia")) {
+    continentImage.innerHTML = `<img id="city-image" src="src/asia.jpeg" alt="City's Image">`;
+  } else if (continent.includes("Australia")) {
+    continentImage.innerHTML = `<img id="city-image" src="src/australia.jpeg" alt="City's Image">`;
+  } else {
+    continentImage.innerHTML = `<img id="city-image" src="src/europe.jpeg" alt="City's Image">`;
+  }
+
+  console.log(continentImage);
+  console.log(textElement);
+  console.log(continent);
 }
 
 getCoord();
 
-function changeContinentImage() {
-  let continentImage = document.querySelector("#city-image");
-  let continentElement = document.querySelector("#country-city");
-  let continent = continentElement.innerHTML;
+// changeContinentImage
+let continentImage = document.querySelector("#city-image");
+let continentElement = document.querySelector("#country-city");
+let continent = continentElement.innerText;
+
+continentImage.ready(function () {
+  setTimeout("", 5000);
+
+  continentImage.innerHTML = `<img id="city-image" src="src/australia.jpeg" alt="City's Image">`;
+
   if (continent.includes("Africa")) {
-    continentImage.innerHTML =
-      '<img id="city-image" src="src/africa.jpeg" alt="City\'s Image">';
+    continentImage.innerHTML = `<img id="city-image" src="src/africa.jpeg" alt="City's Image">`;
   } else if (continent.includes("America")) {
-    continentImage.innerHTML =
-      '<img id="city-image" src="src/america.jpeg" alt="City\'s Image">';
+    continentImage.innerHTML = `<img id="city-image" src="src/america.jpeg" alt="City's Image">`;
   } else if (continent.includes("Asia")) {
-    continentImage.innerHTML =
-      '<img id="city-image" src="src/asia.jpeg" alt="City\'s Image">';
+    continentImage.innerHTML = `<img id="city-image" src="src/asia.jpeg" alt="City's Image">`;
   } else if (continent.includes("Australia")) {
-    continentImage.innerHTML =
-      '<img id="city-image" src="src/australia.jpeg" alt="City\'s Image">';
+    continentImage.innerHTML = `<img id="city-image" src="src/australia.jpeg" alt="City's Image">`;
   } else {
-    continentImage.innerHTML =
-      '<img id="city-image" src="src/europe.jpeg" alt="City\'s Image">';
+    continentImage.innerHTML = `<img id="city-image" src="src/europe.jpeg" alt="City's Image">`;
   }
   console.log(continentImage);
   console.log(continentElement);
   console.log(continent);
-}
+});
+
 // string.includes("abcd");
