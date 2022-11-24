@@ -148,7 +148,9 @@ button.btn.btn-primary.mb-2:hover {
   border-color: burlywood;
 }
 .github-icon {
-  width: 13px;
+  font-size: 12px;
+  color: brown;
+  vertical-align: middle;
 }
 .afternote {
   position: relative;
@@ -157,6 +159,11 @@ button.btn.btn-primary.mb-2:hover {
 a {
   color: brown;
 }
+
+a:hover {
+  color: salmon;
+}
+
 button.today {
   padding: 0px;
 }
